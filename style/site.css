@@ -1,0 +1,44 @@
+body {
+	font-family: 'Segoe UI';
+	font-size: 14px;
+}
+
+#app {
+	background: #f4f4f4;
+	border: 1px solid #eee;
+	height: 40em;
+	width: 40em;
+	position: relative;
+}
+
+.resources {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+	.resources li {
+		position: absolute;
+		height: 0;
+		width: 0;
+		opacity: .8;
+	}
+		.resources li:hover {
+			opacity: 1;
+		}
+
+		.resources li > svg {
+			position: absolute;
+			height: 4em;
+			width: 4em;
+			top: -2em;
+			left: -2em;
+		}
+
+		.resources li > p {
+			position: absolute;
+			height: .5em;
+			width: .5em;
+			top: -.25em;
+			left: -.25em;
+			border: 2px solid red;
+		}
