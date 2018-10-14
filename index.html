@@ -7,7 +7,7 @@
 </head>
 <body>
 	<div id="app">
-		<ul data-bind="foreach: world.resources" class="resources">
+		<ul data-bind="foreach: world.entities" class="entities">
 			<li data-bind="style: { left: x()+'%', top: y()+'%' }">
 				<!-- ko if: type() == 'tree' -->
 				<svg viewBox="0 0 96 96" class="tree">

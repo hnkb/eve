@@ -1,5 +1,5 @@
 
-function Resource(world, data) {
+function Entity(world, data) {
 	var self = this;
 	data = data || {};
 
@@ -11,16 +11,10 @@ function Resource(world, data) {
 	switch (self.type()) {
 		case 'tree':
 			self.fruitAge = ko.observable(-1);
-			break;
-	}
-
-
-	self.tick = function () {
-		switch (self.type()) {
-			case 'tree':
+			self.tick = function () {
 				self.fruitAge(self.fruitAge() >= 2. ? -1 : (self.fruitAge() + .01));
-				break;
-		}
+			}
+			break;
 	}
 }
 
@@ -28,10 +22,13 @@ function World(data) {
 	var self = this;
 	data = data || {};
 
-	self.resources = ko.observableArray((data.resources || []).map(function (r) { return new Resource(self, r); }));
+	self.entities = ko.observableArray((data.entities || []).map(function (r) {
+		return new Entity(self, r);
+	}));
 
 	self.update = function () {
-		for (var i = 0; i < self.resources().length; i++)
-			self.resources()[i].tick();
+		for (var i = 0; i < self.entities().length; i++)
+			if (typeof (self.entities()[i].tick) === 'function')
+				self.entities()[i].tick();
 	}
 }

@@ -1,6 +1,7 @@
 body {
 	font-family: 'Segoe UI';
 	font-size: 14px;
+	margin:0;
 }
 
 #app {
@@ -11,22 +12,22 @@ body {
 	position: relative;
 }
 
-.resources {
+.entities {
 	list-style: none;
 	padding: 0;
 	margin: 0;
 }
-	.resources li {
+	.entities li {
 		position: absolute;
 		height: 0;
 		width: 0;
 		opacity: .8;
 	}
-		.resources li:hover {
+		.entities li:hover {
 			opacity: 1;
 		}
 
-		.resources li > svg {
+		.entities li > svg {
 			position: absolute;
 			height: 4em;
 			width: 4em;
@@ -34,7 +35,7 @@ body {
 			left: -2em;
 		}
 
-		.resources li > p {
+		.entities li > p {
 			position: absolute;
 			height: .5em;
 			width: .5em;
